@@ -27,16 +27,17 @@ def submit_todo_item():
     item_desc = request.form.get('itemDescription')
     item_id = request.form.get('itemID')
     item_uuid = request.form.get('itemUUID')
+    item_hash = request.form.get('itemHash')
 
     if item_name and item_desc and item_id:
         collection.insert_one({
             "item_name": item_name,
             "item_desc": item_desc,
             "item_id": item_id,
-            "item_uuid": item_uuid
-
+            "item_uuid": item_uuid,
+            "item_hash": item_hash
         })
-        print(f"Item Name: {item_name}, Item Description: {item_desc}, Item ID: {item_id}, Item UUID: {item_uuid}")
+        print(f"Item Name: {item_name}, Item Description: {item_desc}, Item ID: {item_id}, Item UUID: {item_uuid}, Item Hash: {item_hash}")
         return "Item added successfully!"
     else:
         return "Missing data", 400
