@@ -21,7 +21,22 @@ def home():
     items = list(collection.find())
     return render_template('to_do.html', items=items ,a=a)
 
+@app.route('/submittodoitem', methods=['POST'])
+def submit_todo_item():
+    item_name = request.form.get('item_name')  # <-- changed here
+    item_desc = request.form.get('itemDescription')
+    item_id = request.form.get('itemID')
 
+    if item_name and item_desc and item_id:
+        collection.insert_one({
+            "item_name": item_name,
+            "item_desc": item_desc,
+            "item_id": item_id
+        })
+        print(f"Item Name: {item_name}, Item Description: {item_desc}, Item ID: {item_id}")
+        return "Item added successfully!"
+    else:
+        return "Missing data", 400
 
 
 
