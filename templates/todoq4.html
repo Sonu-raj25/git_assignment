@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit To-Do Item</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #005ea6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Submit To-Do Item</h2>
+    <form action="/submittodoitem" method="POST">
+      <label for="itemName">Item Name</label>
+      <input type="text" id="itemName" name="itemName" required>
+
+      <label for="itemDescription">Item Description</label>
+      <textarea id="itemDescription" name="itemDescription" required></textarea>
+
+      <label for="itemID">Item ID</label>
+      <input type="text" id="itemID" name="itemID" required>
+
+      <label for="itemUUID">Item UUID</label>
+      <input type="text" id="itemUUID" name="itemUUID" required>
+
+      <label for="itemHash">Item Hash</label>
+      <input type="text" id="itemHash" name="itemHash" required>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
